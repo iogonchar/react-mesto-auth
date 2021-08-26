@@ -1,0 +1,17 @@
+.profile__add-card-btn {
+  background: none;
+  border: none;
+  margin-left: auto;
+  cursor: pointer;
+  transition: opacity .3s;
+}
+
+.profile__add-card-btn:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .profile__add-card-btn {
+    margin: 36px 0 0;
+  }
+}

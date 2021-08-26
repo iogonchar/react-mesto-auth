@@ -1,0 +1,58 @@
+/* normalize.css */
+@import url(./vendor/normalize.css);
+
+/* fonts */
+@import url(./vendor/fonts/fonts.css);
+
+/* body styles */
+@import url(./blocks/body/body.css);
+
+/* header styles */
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__logo/header__logo.css);
+
+/* profile section styles */
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__avatar-wrapper/profile__avatar-wrapper.css);
+@import url(./blocks/profile/__avatar-change-btn/profile__avatar-change-btn.css);
+@import url(./blocks/profile/__avatar/profile__avatar.css);
+@import url(./blocks/profile/__info-wrapper/profile__info-wrapper.css);
+@import url(./blocks/profile/__info/profile__info.css);
+@import url(./blocks/profile/__author/profile__author.css);
+@import url(./blocks/profile/__about/profile__about.css);
+@import url(./blocks/profile/__profile-edit-btn/profile__profile-edit-btn.css);
+@import url(./blocks/profile/__profile-edit/profile__profile-edit.css);
+@import url(./blocks/profile/__add-card-btn/profile__add-card-btn.css);
+@import url(./blocks/profile/__add-card/profile__add-card.css);
+
+/* places section styles */
+@import url(./blocks/places/places.css);
+@import url(./blocks/places/__list/places__list.css);
+@import url(./blocks/places/__card/places__card.css);
+@import url(./blocks/places/__delete-card-btn/places__delete-card-btn.css);
+@import url(./blocks/places/__delete-card-btn/_hidden/places__delete-card-btn_hidden.css);
+@import url(./blocks/places/__img/places__img.css);
+@import url(./blocks/places/__title/places__title.css);
+@import url(./blocks/places/__like-wrapper/places__like-wrapper.css);
+@import url(./blocks/places/__like-card-btn/places__like-card-btn.css);
+@import url(./blocks/places/__like-card-btn/_liked/places__like-card-btn_liked.css);
+@import url(./blocks/places/__likes-count/places__likes-count.css);
+
+/* footer styles */
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__copyright/footer__copyright.css);
+
+/* popup styles */
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/popup/_type/popup_type_form.css);
+@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/popup/__container/_type/popup__container_type_form.css);
+@import url(./blocks/popup/__popup-close-btn/popup__popup-close-btn.css);
+@import url(./blocks/popup/__title/popup__title.css);
+@import url(./blocks/popup/__form/popup__form.css);
+@import url(./blocks/popup/__form-field/popup__form-field.css);
+@import url(./blocks/popup/__form-input/popup__form-input.css);
+@import url(./blocks/popup/__form-submit-btn/popup__form-submit-btn.css);
+@import url(./blocks/popup/__img/popup__img.css);
+@import url(./blocks/popup/__text/popup__text.css);
