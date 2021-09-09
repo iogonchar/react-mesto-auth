@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 // component imports
 import Header from './Header';
@@ -11,14 +11,22 @@ import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
 import Login from './Login';
 import Register from './Register';
+import ProtectedRoute from './ProtectedRoute';
 
 // context imports
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 // utils imports
 import api from '../utils/api';
+import auth from '../utils/auth'
+import InfoTooltip from './InfoTooltip';
 
 function App() {
+  // auth state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSignupSuccess, setIsSignupSuccess] = useState(false);
+  const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
+
   // popup state
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -48,6 +56,7 @@ function App() {
 
   // popup close handler
   function closeAllPopups() {
+    setIsInfoTooltipOpen(false);
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
@@ -124,33 +133,57 @@ function App() {
       .catch((err) => console.log(err))
   }
 
+  // register
+  function handleSignup(userData) {
+    auth.signup(userData)
+      .then(res => {
+        setIsSignupSuccess(true);
+      })
+      .catch(err => {
+        setIsSignupSuccess(false);
+      })
+      .finally(setIsInfoTooltipOpen(true))
+  }
+
+  // login
+  function handleSignin(userData) {
+    auth.signin(userData)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
+
+
   return (
     <div className="page__content">
       <CurrentUserContext.Provider value={currentUser}>
         <Header />
         <Switch>
-          <Route exact path="/">
-            <Main
-              cards={cards}
-              onEditAvatar={handleEditAvatarClick}
-              onEditProfile={handleEditProfileClick}
-              onAddPlace={handleAddPlaceClick}
-              onCardClick={handleCardClick}
-              onCardLike={handleCardLike}
-              onCardDelete={handleCardDelete}
-            />
-            <Footer />
-          </Route>
-
           <Route exact path="/sign-up">
-            <Register />
+            <Register
+              onSignup={handleSignup}
+            />
           </Route>
 
           <Route exact path="/sign-in">
-            <Login />
+            <Login
+              onSignin={handleSignin}
+            />
           </Route>
+
+          <ProtectedRoute
+            path="/"
+            component={Main}
+            isLoggedIn={isLoggedIn}
+            cards={cards}
+            onEditAvatar={handleEditAvatarClick}
+            onEditProfile={handleEditProfileClick}
+            onAddPlace={handleAddPlaceClick}
+            onCardClick={handleCardClick}
+            onCardLike={handleCardLike}
+            onCardDelete={handleCardDelete}
+          />
         </Switch>
-        
+        { isLoggedIn && <Footer /> }
 
         <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
 
@@ -162,6 +195,12 @@ function App() {
           isOpen={isImagePopupOpen}
           card={selectedCard}
           onClose={closeAllPopups}
+        />
+
+        <InfoTooltip
+          isOpen={isInfoTooltipOpen}
+          onClose={closeAllPopups}
+          isSignupSuccess={isSignupSuccess}
         />
       </CurrentUserContext.Provider>
     </div>
