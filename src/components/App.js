@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 
 // component imports
 import Header from './Header';
@@ -22,6 +22,9 @@ import auth from '../utils/auth'
 import InfoTooltip from './InfoTooltip';
 
 function App() {
+  // history
+  const history = useHistory();
+
   // auth state
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSignupSuccess, setIsSignupSuccess] = useState(false);
@@ -148,15 +151,38 @@ function App() {
   // login
   function handleSignin(userData) {
     auth.signin(userData)
-      .then(res => console.log(res))
+      .then(res => {
+        setIsLoggedIn(true);
+        localStorage.setItem('jwt', res.token);
+        history.push('/');
+      })
       .catch(err => console.log(err))
   }
 
+  // logout
+  function handleSignout() {
+    setIsLoggedIn(false);
+    localStorage.removeItem('jwt');
+    history.push('/sign-in');
+  }
+
+  // token check
+  useEffect(() => {
+    if (localStorage.getItem('jwt')) {
+      auth.checkToken(localStorage.getItem('jwt'))
+        .then(res => {
+          console.log(res);
+          setIsLoggedIn(true);
+          history.push('/');
+        })
+        .catch(err => console.log(err));
+    }
+  }, []);
 
   return (
     <div className="page__content">
       <CurrentUserContext.Provider value={currentUser}>
-        <Header />
+        <Header onSignout={handleSignout} />
         <Switch>
           <Route exact path="/sign-up">
             <Register

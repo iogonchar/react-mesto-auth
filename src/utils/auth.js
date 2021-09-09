@@ -34,6 +34,17 @@ class Auth {
     })
     .then(res => this._getResponseData(res));
   }
+
+  checkToken(jwt) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: 'GET',
+      headers: {
+        ...this._headers,
+        authorization: `Bearer ${jwt}`
+      }
+    })
+    .then(res => this._getResponseData(res));
+  }
 }
 
 const auth = new Auth({
