@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 // component imports
 import Header from './Header';
@@ -8,6 +9,8 @@ import ImagePopup from './ImagePopup';
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
+import Login from './Login';
+import Register from './Register';
 
 // context imports
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
@@ -125,16 +128,29 @@ function App() {
     <div className="page__content">
       <CurrentUserContext.Provider value={currentUser}>
         <Header />
-        <Main
-          cards={cards}
-          onEditAvatar={handleEditAvatarClick}
-          onEditProfile={handleEditProfileClick}
-          onAddPlace={handleAddPlaceClick}
-          onCardClick={handleCardClick}
-          onCardLike={handleCardLike}
-          onCardDelete={handleCardDelete}
-        />
-        <Footer />
+        <Switch>
+          <Route exact path="/">
+            <Main
+              cards={cards}
+              onEditAvatar={handleEditAvatarClick}
+              onEditProfile={handleEditProfileClick}
+              onAddPlace={handleAddPlaceClick}
+              onCardClick={handleCardClick}
+              onCardLike={handleCardLike}
+              onCardDelete={handleCardDelete}
+            />
+            <Footer />
+          </Route>
+
+          <Route exact path="/sign-up">
+            <Register />
+          </Route>
+
+          <Route exact path="/sign-in">
+            <Login />
+          </Route>
+        </Switch>
+        
 
         <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
 

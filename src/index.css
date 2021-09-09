@@ -50,9 +50,19 @@
 @import url(./blocks/popup/__container/_type/popup__container_type_form.css);
 @import url(./blocks/popup/__popup-close-btn/popup__popup-close-btn.css);
 @import url(./blocks/popup/__title/popup__title.css);
-@import url(./blocks/popup/__form/popup__form.css);
-@import url(./blocks/popup/__form-field/popup__form-field.css);
-@import url(./blocks/popup/__form-input/popup__form-input.css);
-@import url(./blocks/popup/__form-submit-btn/popup__form-submit-btn.css);
 @import url(./blocks/popup/__img/popup__img.css);
 @import url(./blocks/popup/__text/popup__text.css);
+
+/* auth styles */
+@import url(./blocks/auth/auth.css);
+@import url(./blocks/auth/__title/auth__title.css);
+
+/* form styles */
+@import url(./blocks/form/form.css);
+@import url(./blocks/form/__field/form__field.css);
+@import url(./blocks/form/__input/form__input.css);
+@import url(./blocks/form/__input/_theme/form__input_theme_dark.css);
+@import url(./blocks/form/__input/_theme/form__input_theme_light.css);
+@import url(./blocks/form/__submit-btn/form__submit-btn.css);
+@import url(./blocks/form/__submit-btn/_theme/form__submit-btn_theme_dark.css);
+@import url(./blocks/form/__submit-btn/_theme/form__submit-btn_theme_light.css);

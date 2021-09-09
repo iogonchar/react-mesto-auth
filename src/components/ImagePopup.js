@@ -1,3 +1,5 @@
+import React from 'react';
+
 // image imports
 import imgClosePopup from '../images/close-icon.svg';
 

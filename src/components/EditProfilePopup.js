@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 // component imports
 import PopupWithForm from "./PopupWithForm";
@@ -43,9 +43,9 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label className="popup__form-field">
+      <label className="form__field">
         <input
-          className="popup__form-input"
+          className="form__input form__input_theme_light"
           id="author"
           name="author"
           placeholder="Имя"
@@ -58,9 +58,9 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         />
         <span className="popup__form-input-error author-input-error"></span>
       </label>
-      <label className="popup__form-field">
+      <label className="form__field">
         <input
-          className="popup__form-input"
+          className="form__input form__input_theme_light"
           id="about-author"
           name="about"
           placeholder="Занятие"

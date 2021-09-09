@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from 'react';
 
 // component imports
 import PopupWithForm from "./PopupWithForm";
@@ -25,10 +25,10 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label className="popup__form-field">
+      <label className="form__field">
         <input
           ref={avatarRef}
-          className="popup__form-input"
+          className="form__input form__input_theme_light"
           id="user-avatar"
           name="avatar"
           placeholder="Ссылка на аватар"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // component imports
 import PopupWithForm from './PopupWithForm';
@@ -38,12 +38,32 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label className="popup__form-field">
-        <input className="popup__form-input" id="place" name="name" type="text" placeholder="Название" required minLength="2" maxLength="30" onChange={handleNameChange} value={name || ''} />
+      <label className="form__field">
+        <input
+          className="form__input form__input_theme_light"
+          id="place"
+          name="name"
+          type="text"
+          placeholder="Название"
+          required
+          minLength="2"
+          maxLength="30"
+          onChange={handleNameChange}
+          value={name || ''}
+        />
         <span className="popup__form-input-error place-input-error"></span>
       </label>
-      <label className="popup__form-field">
-        <input className="popup__form-input" id="place-img" name="link" placeholder="Ссылка на картинку" required type="url" onChange={handleLinkChange} value={link || ''} />
+      <label className="form__field">
+        <input
+          className="form__input form__input_theme_light"
+          id="place-img"
+          name="link"
+          placeholder="Ссылка на картинку"
+          required
+          type="url"
+          onChange={handleLinkChange}
+          value={link || ''}
+        />
         <span className="popup__form-input-error place-img-input-error"></span>
       </label>
     </PopupWithForm>

@@ -1,3 +1,5 @@
+import React from 'react';
+
 // image imports
 import imgClosePopup from '../images/close-icon.svg';
 
@@ -19,13 +21,13 @@ function PopupWithForm({ title, name, buttonText, isOpen, onClose, onSubmit, chi
         <h2 className="popup__title">{title}</h2>
 
         <form
-          className="popup__form"
+          className="form"
           name={`popup-${name}-form`}
           id={`popup-${name}-form`}
           onSubmit={onSubmit}
         >
           {children}
-          <button className="popup__form-submit-btn" type="submit">{buttonText}</button>
+          <button className="form__submit-btn form__submit-btn_theme_light" type="submit">{buttonText}</button>
         </form>
       </div>
     </div>

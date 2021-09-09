@@ -1,3 +1,5 @@
+import React from 'react';
+
 // image imports
 import imgLogo from '../images/logo.svg';
 

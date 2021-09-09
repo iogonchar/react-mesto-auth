@@ -1,0 +1,9 @@
+.form__input_theme_dark {
+  background-color: transparent;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.form__input_theme_dark:focus {
+  border-bottom: 2px solid rgba(255, 255, 255, .7);
+}
