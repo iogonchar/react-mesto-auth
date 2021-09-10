@@ -44,7 +44,7 @@ function Register({ onSignup }) {
             name="link"
             placeholder="Пароль"
             required
-            type="text"
+            type="password"
             onChange={handlePasswordChange}
           />
         </label>

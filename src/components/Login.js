@@ -24,7 +24,7 @@ function Login({ onSignin }) {
   return(
     <section className="auth">
       <h2 className="auth__title">Вход</h2>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit} autoComplete="off">
         <label className="form__field">
           <input
             className="form__input form__input_theme_dark"
@@ -43,7 +43,7 @@ function Login({ onSignin }) {
             name="link"
             placeholder="Пароль"
             required
-            type="text"
+            type="password"
             onChange={handlePasswordChange}
           />
         </label>
