@@ -11,7 +11,7 @@ function InfoTooltip({ isOpen, onClose, isSignupSuccess }) {
       className={`popup popup_type_form ${isOpen ? 'popup_opened' : ''}`}
       id={`signup-tooltip`}
     >
-      <div className="popup__container popup__container_type_form">
+      <div className="popup__container popup__container_type_tooltip">
         <button className="popup__popup-close-btn" onClick={onClose}>
           <img
             className="popup__popup-close"
@@ -19,8 +19,8 @@ function InfoTooltip({ isOpen, onClose, isSignupSuccess }) {
             alt="Закрыть"
           />
         </button>
-        <img src={isSignupSuccess ? imgSuccessSignup : imgErrorSignup} alt={isSignupSuccess ? 'Успех' : 'Ошибка'} />
-        <p>{isSignupSuccess ? 'success' : 'not success'}</p>
+        <img className="popup__tooltip-img" src={isSignupSuccess ? imgSuccessSignup : imgErrorSignup} alt={isSignupSuccess ? 'Успех' : 'Ошибка'} />
+        <p className="popup__tooltip-text">{isSignupSuccess ? 'Вы успешно зарегистрировались!' : 'Что-то пошло не так! Попробуйте еще раз.'}</p>
       </div>
     </div>
   )

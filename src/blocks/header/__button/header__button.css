@@ -1,0 +1,14 @@
+.header__button {
+  margin-left: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #a9a9a9;
+  border: none;
+  cursor: pointer;
+  transition: opacity .3s;
+  background-color: transparent;
+  height: 22px;
+  padding: 0;
+}

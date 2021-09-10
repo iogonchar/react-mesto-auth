@@ -1,9 +1,13 @@
 import React from 'react';
+import { useLocation, Link } from 'react-router-dom';
 
 // image imports
 import imgLogo from '../images/logo.svg';
 
-function Header({ onSignout }) {
+function Header({ onSignout, userEmail, isLoggedIn }) {
+
+  const location = useLocation();
+
   return (
     <header className="header">
       <img
@@ -11,7 +15,18 @@ function Header({ onSignout }) {
         src={imgLogo}
         alt="Логотип проекта Mesto"
       />
-      <button onClick={onSignout}>Выйти</button>
+      {
+        isLoggedIn && <nav>
+          <span className="header__email">{userEmail}</span>
+          <button className="header__button" onClick={onSignout}>Выйти</button>
+        </nav>
+      }
+      {
+        !isLoggedIn && location.pathname === '/sign-up' && <Link to="/sign-in" className="header__link">Войти</Link>
+      }
+      {
+        !isLoggedIn && location.pathname === '/sign-in' && <Link to="/sign-up" className="header__link">Регистрация</Link>
+      }
     </header>
   );
 }

@@ -10,6 +10,9 @@
 /* header styles */
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__button/header__button.css);
+@import url(./blocks/header/__email/header__email.css);
+@import url(./blocks/header/__link/header__link.css);
 
 /* profile section styles */
 @import url(./blocks/profile/profile.css);
@@ -48,14 +51,18 @@
 @import url(./blocks/popup/_type/popup_type_form.css);
 @import url(./blocks/popup/__container/popup__container.css);
 @import url(./blocks/popup/__container/_type/popup__container_type_form.css);
+@import url(./blocks/popup/__container/_type/popup__container_type_tooltip.css);
 @import url(./blocks/popup/__popup-close-btn/popup__popup-close-btn.css);
 @import url(./blocks/popup/__title/popup__title.css);
 @import url(./blocks/popup/__img/popup__img.css);
 @import url(./blocks/popup/__text/popup__text.css);
+@import url(./blocks/popup/__tooltip-text/popup__tooltip-text.css);
+@import url(./blocks/popup/__tooltip-img/popup__tooltip-img.css);
 
 /* auth styles */
 @import url(./blocks/auth/auth.css);
 @import url(./blocks/auth/__title/auth__title.css);
+@import url(./blocks/auth/__link/auth__link.css);
 
 /* form styles */
 @import url(./blocks/form/form.css);

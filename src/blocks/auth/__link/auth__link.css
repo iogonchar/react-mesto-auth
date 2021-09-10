@@ -1,0 +1,10 @@
+.auth__link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-top: 15px;
+}

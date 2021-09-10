@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
 // component imports
@@ -29,6 +29,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSignupSuccess, setIsSignupSuccess] = useState(false);
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
+
+  const [userEmail, setUserEmail] = useState(null);
 
   // popup state
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
@@ -161,28 +163,29 @@ function App() {
 
   // logout
   function handleSignout() {
+    setUserEmail(null);
     setIsLoggedIn(false);
     localStorage.removeItem('jwt');
     history.push('/sign-in');
   }
 
   // token check
-  useEffect(() => {
+    useEffect(() => {
     if (localStorage.getItem('jwt')) {
       auth.checkToken(localStorage.getItem('jwt'))
         .then(res => {
-          console.log(res);
+          setUserEmail(res.data.email);
           setIsLoggedIn(true);
           history.push('/');
         })
         .catch(err => console.log(err));
     }
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <div className="page__content">
       <CurrentUserContext.Provider value={currentUser}>
-        <Header onSignout={handleSignout} />
+        <Header onSignout={handleSignout} userEmail={userEmail} isLoggedIn={isLoggedIn} />
         <Switch>
           <Route exact path="/sign-up">
             <Register

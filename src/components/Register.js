@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Register({ onSignup }) {
   const [password, setPassword] = useState('');
@@ -49,6 +50,7 @@ function Register({ onSignup }) {
         </label>
         <button className="form__submit-btn form__submit-btn_theme_dark" type="submit">Зарегистрироваться</button>
       </form>
+      <Link to="/sign-in" className="auth__link">Уже зарегистрированы? Войти</Link>
     </section>
   );
 }
