@@ -147,7 +147,7 @@ function App() {
       .catch(err => {
         setIsSignupSuccess(false);
       })
-      .finally(setIsInfoTooltipOpen(true))
+      .finally(() => setIsInfoTooltipOpen(true));
   }
 
   // login
