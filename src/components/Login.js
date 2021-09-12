@@ -34,6 +34,7 @@ function Login({ onSignin }) {
             placeholder="Email"
             required
             onChange={handleEmailChange}
+            value={email || ''}
           />
         </label>
         <label className="form__field">
@@ -45,6 +46,7 @@ function Login({ onSignin }) {
             required
             type="password"
             onChange={handlePasswordChange}
+            value={password || ''}
           />
         </label>
         <button className="form__submit-btn form__submit-btn_theme_dark" type="submit">Войти</button>
