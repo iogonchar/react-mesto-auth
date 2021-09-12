@@ -28,7 +28,7 @@ function Login({ onSignin }) {
         <label className="form__field">
           <input
             className="form__input form__input_theme_dark"
-            id="place"
+            id="auth-login"
             name="name"
             type="email"
             placeholder="Email"
@@ -40,7 +40,7 @@ function Login({ onSignin }) {
         <label className="form__field">
           <input
             className="form__input form__input_theme_dark"
-            id="place-img"
+            id="auth-password"
             name="link"
             placeholder="Пароль"
             required

@@ -29,7 +29,7 @@ function Register({ onSignup }) {
         <label className="form__field">
           <input
             className="form__input form__input_theme_dark"
-            id="place"
+            id="reg-login"
             name="name"
             type="email"
             placeholder="Email"
@@ -41,7 +41,7 @@ function Register({ onSignup }) {
         <label className="form__field">
           <input
             className="form__input form__input_theme_dark"
-            id="place-img"
+            id="reg-password"
             name="link"
             placeholder="Пароль"
             required
